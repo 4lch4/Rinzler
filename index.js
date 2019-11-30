@@ -1,5 +1,5 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando')
-const { sendMessage } = require('./src/cmds/BaseCmd')
+const sendMessage = require('./src/cmds/BaseCmd').sendMessage
 const config = require('./src/utils/config')
 const logger = require('./src/utils/logger')
 const Tools = require('./src/utils/Tools')
