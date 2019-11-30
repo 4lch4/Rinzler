@@ -2,6 +2,9 @@ const { CommandoClient, SQLiteProvider } = require('discord.js-commando')
 const { sendMessage } = require('./src/cmds/BaseCmd')
 const config = require('./src/utils/config')
 const logger = require('./src/utils/logger')
+const Tools = require('./src/utils/Tools')
+const dTools = new Tools().DateTools
+const mTools = new Tools().MiscTools
 const sqlite = require('sqlite')
 const path = require('path')
 
@@ -13,30 +16,22 @@ const client = new CommandoClient({
 
 client.registry
   .registerDefaultTypes()
+  .registerDefaultGroups()
+  .registerDefaultCommands()
   .registerGroups([
     ['actions', 'Action Command Group'],
     ['reactions', 'Reaction Command Group'],
     ['admin', 'Admin Command Group'],
-    ['features', 'Feature Commands'],
     ['nsfw', 'NSFW Command Group'],
     ['user', 'User Command Group']
   ])
-  .registerDefaultGroups()
-  .registerDefaultCommands({
-    unknownCommand: false
-  })
   .registerCommandsIn({
     dirname: path.join(__dirname, 'src', 'cmds'),
     excludeDirs: /(util)/
   })
 
-sqlite.open(path.join(__dirname, 'data', 'settings.sqlite3')).then((db) => {
-  client.setProvider(new SQLiteProvider(db))
-})
-
-const Tools = require('./src/utils/Tools')
-const dTools = new Tools().DateTools
-const mTools = new Tools().MiscTools
+sqlite.open(path.join(__dirname, 'data', 'settings.sqlite3'))
+  .then(db => client.setProvider(new SQLiteProvider(db)))
 
 client.on('ready', () => {
   const readyTime = dTools.formattedUTCTime
