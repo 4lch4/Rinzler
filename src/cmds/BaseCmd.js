@@ -135,13 +135,3 @@ const canSendMessage = (channel, user) => {
     return true
   }
 }
-
-// Used for JSDocs
-const {
-  User,
-  DMChannel,
-  TextChannel,
-  Message,
-  MessageEmbed,
-  MessageAttachment
-} = require('discord.js')
