@@ -1,0 +1,5 @@
+node_modules/
+logs/
+pnpm-lock.yaml
+*config.js
+data/settings.sqlite3
