@@ -3,7 +3,7 @@ const logger = require('../utils/logger')
 
 module.exports = class BaseCmd extends Command {
   log (info) {
-    return logger.log(info)
+    return logger.info(info)
   }
 
   warn (warning) {
