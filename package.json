@@ -30,6 +30,7 @@
     "moment-timezone": "^0.5.27",
     "mongodb": "^3.3.5",
     "mongoose": "^5.7.13",
+    "needle": "^2.4.0",
     "nekos.life": "^2.0.4",
     "redwrap": "^0.0.4",
     "restify": "^8.4.1",
