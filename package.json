@@ -11,7 +11,12 @@
     "test": "jest",
     "test-full": "jest --config ./util/jest.config.js && codecov"
   },
-  "keywords": [],
+  "keywords": [
+    "discord",
+    "discord.js",
+    "chatbot",
+    "discord.js-commando"
+  ],
   "author": {
     "email": "hello@4lch4.com",
     "name": "4lch4",
