@@ -10,11 +10,6 @@ class Cheeki extends BaseCmd {
       examples: ['+cheeki', '+cheeki 4']
     })
   }
-
-  async run (msg, args) {
-    const image = await this.getCommandImage(msg.command.name, args)
-    return BaseCmd.sendMessage(msg.channel, '', this.client.user, { files: [image.body] })
-  }
 }
 
 module.exports = Cheeki
