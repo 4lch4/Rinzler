@@ -1,5 +1,5 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando')
-const sendMessage = require('./src/cmds/BaseCmd').sendMessage
+const sendMessage = require('./src/cmds/_bases/BaseCmd').sendMessage
 const config = require('./src/utils/config')
 const logger = require('./src/utils/logger')
 const Tools = require('./src/utils/Tools')
@@ -27,7 +27,7 @@ client.registry
   ])
   .registerCommandsIn({
     dirname: path.join(__dirname, 'src', 'cmds'),
-    excludeDirs: /(util)/
+    excludeDirs: /(util)|(_bases)/
   })
 
 sqlite.open(path.join(__dirname, 'data', 'settings.sqlite3'))
