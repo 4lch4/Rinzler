@@ -1,4 +1,4 @@
-const BaseCmd = require('../util/BaseImageCommand')
+const BaseCmd = require('../_bases/BaseReactionCmd')
 
 class Dreamy extends BaseCmd {
   constructor (client) {

@@ -1,4 +1,4 @@
-const BaseCmd = require('../util/BaseImageCommand')
+const BaseCmd = require('../_bases/BaseCmd')
 const allowedIds = ['159844469464760320', '219270060936527873']
 
 class Foupa extends BaseCmd {

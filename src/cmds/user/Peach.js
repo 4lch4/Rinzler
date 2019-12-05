@@ -1,4 +1,4 @@
-const BaseCmd = require('../util/BaseImageCommand')
+const BaseCmd = require('../_bases/BaseCmd')
 
 class Peach extends BaseCmd {
   constructor (client) {

@@ -1,4 +1,4 @@
-const BaseCmd = require('../util/BaseImageCommand')
+const BaseCmd = require('../_bases/BaseCmd')
 const allowedIds = [
   '142092834260910080',
   '217870035090276374',
