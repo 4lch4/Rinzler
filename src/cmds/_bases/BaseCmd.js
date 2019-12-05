@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando')
-const logger = require('../utils/logger')
+const logger = require('../../utils/logger')
 
 module.exports = class BaseCmd extends Command {
   log (info) {
