@@ -22,6 +22,10 @@
     "name": "4lch4",
     "url": "https://hasslefree.solutions"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4lch4/Rinzler.git"
+  },
   "license": "2-Clause-BSD",
   "dependencies": {
     "chalk": "^3.0.0",
