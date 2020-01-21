@@ -1,4 +1,4 @@
-const config = require('../../utils/config')
+const config = require('./config')
 
 const Coinbase = require('coinbase').Client
 const coinbase = new Coinbase({
@@ -7,7 +7,7 @@ const coinbase = new Coinbase({
   version: '2018-01-17'
 })
 
-const currencies = require('../../../data/currencies.json')
+const currencies = require('../../data/currencies.json')
 
 class CoinbaseAid {
   getCurrentPrice (currency = 'USD') {

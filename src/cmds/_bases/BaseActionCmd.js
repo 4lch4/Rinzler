@@ -1,5 +1,5 @@
 const BaseCmd = require('./BaseCmd')
-const Ansel = require('../utils/AnselAid')
+const Ansel = require('../../utils/AnselAid')
 const ansel = new Ansel()
 
 class BaseActionCmd extends BaseCmd {

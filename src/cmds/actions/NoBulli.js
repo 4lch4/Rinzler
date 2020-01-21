@@ -1,5 +1,5 @@
 const BaseCmd = require('../_bases/BaseCmd')
-const ansel = new (require('../utils/AnselAid'))()
+const ansel = new (require('../../utils/AnselAid'))()
 
 class NoBulli extends BaseCmd {
   constructor (client) {

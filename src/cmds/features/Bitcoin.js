@@ -1,5 +1,5 @@
+const coinbase = new (require('../../utils/Coinbase'))()
 const BaseCmd = require('../_bases/BaseCmd')
-const coinbase = new (require('../utils/Coinbase'))()
 
 class Bitcoin extends BaseCmd {
   constructor (client) {

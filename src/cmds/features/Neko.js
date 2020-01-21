@@ -1,5 +1,5 @@
 const BaseCmd = require('../_bases/BaseCmd')
-const { getNekoImg, validateFuncName, validateNSFWFlag, MSGNonNSFWChannel } = require('../utils/NekoLife')
+const { getNekoImg, validateFuncName, validateNSFWFlag, MSGNonNSFWChannel } = require('../../utils/NekoLife')
 
 class Neko extends BaseCmd {
   constructor (client) {
