@@ -15,3 +15,5 @@ class Invite extends BaseCmd {
     return msg.reply('would you like me to join your server? :smiley:\nhttps://discordapp.com/oauth2/authorize?client_id=258162570622533635&scope=bot')
   }
 }
+
+module.exports = Invite
