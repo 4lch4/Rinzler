@@ -41,6 +41,7 @@
     "moment-timezone": "^0.5.27",
     "mongodb": "^3.4.0",
     "mongoose": "^5.8.0",
+    "mongoose-timestamp": "^0.6.0",
     "needle": "^2.4.0",
     "nekos.life": "^2.0.4",
     "redwrap": "^0.0.4",
@@ -48,7 +49,8 @@
     "shuffle-array": "^1.0.1",
     "simple-node-logger": "^18.12.23",
     "sqlite": "^3.0.3",
-    "tumblr.js": "^2.0.2"
+    "tumblr.js": "^2.0.2",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "faker": "4.1.0",
