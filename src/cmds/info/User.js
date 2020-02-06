@@ -2,7 +2,7 @@ const info = require('../../../package.json')
 const BaseCmd = require('../_bases/BaseCmd')
 const { RichEmbed } = require('discord.js')
 
-const tools = new (require('../../utils/DateTools'))()
+const tools = require('../../utils/tools').DateTools
 
 class User extends BaseCmd {
   constructor (client) {

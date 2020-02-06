@@ -1,10 +1,10 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando')
 const sendMessage = require('./src/cmds/_bases/BaseCmd').sendMessage
+const TStats = new (require('./src/utils/db/helpers/TronStats'))()
+const dTools = require('./src/utils/tools').DateTools
+const mTools = require('./src/utils/tools').MiscTools
 const config = require('./src/utils/config')
 const logger = require('./src/utils/logger')
-const Tools = require('./src/utils/Tools')
-const dTools = new Tools().DateTools
-const mTools = new Tools().MiscTools
 const sqlite = require('sqlite')
 const path = require('path')
 
@@ -37,8 +37,10 @@ sqlite.open(path.join(__dirname, 'data', 'settings.sqlite3'))
 
 client.on('ready', () => {
   const readyTime = dTools.formattedUTCTime
+  const readyMsg = `Rinzler has come online > **${readyTime} UTC**`
 
-  sendMessage(client.channels.get(config.testChannel), `<@219270060936527873>, Rinzler has come online > **${readyTime}**`, client.user)
+  sendMessage(client.channels.get(config.testChannel), `<@219270060936527873>, ${readyMsg}`, client.user)
+  TStats.saveStartupTime(readyTime).catch(err => logger.error(err))
 
   /**
    * Rotates the activity setting on Tron every 2 minutes (120,000ms) to a
@@ -58,7 +60,11 @@ client.on('ready', () => {
     client.user.setActivity(activity)
   }, 120000)
 
-  logger.info(`Rinzler has come online > ${readyTime}`)
+  logger.info(readyMsg)
+})
+
+client.on('commandRun', cmd => {
+  TStats.incrementCmdUsage(cmd.name).catch(err => logger.error(err))
 })
 
 client.on('commandError', (cmd, err) => logger.error(err))

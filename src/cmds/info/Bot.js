@@ -1,8 +1,8 @@
+const tools = require('../../utils/tools').MiscTools
 const BaseCmd = require('../_bases/BaseCmd')
 const { RichEmbed } = require('discord.js')
 const info = require('../../../package.json')
 const Moment = require('moment')
-const tools = new (require('../../utils/MiscTools'))()
 
 class Bot extends BaseCmd {
   constructor (client) {

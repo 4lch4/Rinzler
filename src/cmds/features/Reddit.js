@@ -1,5 +1,5 @@
+const r = require('../../utils/tools').RedditTools
 const BaseCmd = require('../_bases/BaseCmd')
-const r = new (require('../../utils/RedditTools'))()
 
 const ValidArgs = {
   sort: ['hot', 'top', 'controversial', 'new'],

@@ -1,5 +1,5 @@
-const SHelper = require('../../utils/db/Suggestion')
-const tools = new (require('../../utils/MiscTools'))()
+const SHelper = require('../../utils/db/helpers/Suggestion')
+const tools = require('../../utils/tools').MiscTools
 const BaseCmd = require('../_bases/BaseCmd')
 
 class Suggestion extends BaseCmd {

@@ -1,6 +1,6 @@
 const BaseCmd = require('../_bases/BaseCmd')
 
-const tools = new (require('../../utils/MiscTools'))()
+const tools = require('../../utils/tools').MiscTools
 const ratings = require('../../../data/ratings')
 
 class RateWaifu extends BaseCmd {
