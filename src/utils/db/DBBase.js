@@ -4,12 +4,12 @@ const uuid = require('uuid/v4')
 
 class MongooseDB {
   constructor () {
-    mongoose.set('useNewUrlParser', true)
-    mongoose.set('useFindAndModify', false)
-    mongoose.set('useCreateIndex', true)
-    mongoose.set('useUnifiedTopology', true)
-
-    this.connection = mongoose.createConnection(MONGO_URL)
+    this.connection = mongoose.createConnection(MONGO_URL, {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+      useUnifiedTopology: true
+    })
   }
 
   /**

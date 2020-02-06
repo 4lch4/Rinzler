@@ -1,5 +1,5 @@
-const SuggestionModel = require('./models/Suggestion')
-const DBBase = require('./DBBase')
+const SuggestionModel = require('../models/Suggestion')
+const DBBase = require('../DBBase')
 
 class SuggestionDB extends DBBase {
   /**
@@ -7,7 +7,7 @@ class SuggestionDB extends DBBase {
    * MongoDB.
    *
    * @param {string} content The body/content of the Suggestion.
-   * @param {User} author The User object of the Suggestion creator/author.
+   * @param {*} author The User object of the Suggestion creator/author.
    *
    * @returns {Promise<Object>} The Suggestion that was created & stored.
    */
@@ -45,5 +45,3 @@ module.exports = SuggestionDB
  * @prop {string} [id] The unique identifier of the Author object. Will be generated if one isn't provided.
  * @prop {string} username The display name/username of the Author.
  */
-
-const { User } = require('discord.js')
