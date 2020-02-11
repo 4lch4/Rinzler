@@ -1,8 +1,5 @@
 const nekos = new (require('nekos.life'))()
-
-const MSGInvalidImageFunctionName = 'Please choose a valid image function. If you would like a list, please click this link: https://gist.github.com/4lch4/fa79a6fb8aa4fdae1d1064b41fc2a1b9'
-const MSGInvalidNSFWFlag = 'If you wish to enable the nsfwFlag, just provide the letter `n` for this argument.'
-const MSGNonNSFWChannel = 'NSFW commands can only be used in channels flagged for NSFW content.'
+const Strings = require('../i18n/enUS/NekoLife')
 
 const ValidCmds = {
   sfw: {
@@ -74,12 +71,12 @@ const validateFuncName = (val, msg, arg) => {
   const argsArr = msg.argString.trim().toLowerCase().split(' ')
 
   if (ValidCmds.sfw[argsArr[0]] !== undefined || ValidCmds.nsfw[argsArr[0]] !== undefined) return true
-  else return MSGInvalidImageFunctionName
+  else return Strings.Errors.InvalidImageFunctionName
 }
 
 const validateNSFWFlag = (val, msg, args) => {
   if (val.toLowerCase().startsWith('n')) return true
-  else return MSGInvalidNSFWFlag
+  else return Strings.Errors.InvalidNSFWFlag
 }
 
 /**
@@ -133,7 +130,6 @@ const getNekoImg = async (imageName, nsfwFlag) => {
   } catch (err) { return err }
 }
 
-module.exports.MSGNonNSFWChannel = MSGNonNSFWChannel
 module.exports.validateFuncName = validateFuncName
 module.exports.validateNSFWFlag = validateNSFWFlag
 module.exports.getNekoImg = getNekoImg

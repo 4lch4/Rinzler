@@ -1,5 +1,6 @@
 const BaseCmd = require('../_bases/BaseCmd')
-const { getNekoImg, validateFuncName, validateNSFWFlag, MSGNonNSFWChannel } = require('../../utils/NekoLife')
+const Strings = require('../../i18n/enUS/NekoLife')
+const { getNekoImg, validateFuncName, validateNSFWFlag } = require('../../utils/NekoLife')
 
 class Neko extends BaseCmd {
   constructor (client) {
@@ -29,10 +30,10 @@ class Neko extends BaseCmd {
   async run (msg, { functionName, nsfwFlag }) {
     // Verify the user provided a NSFW flag.
     if (nsfwFlag.toLowerCase().startsWith('n') && !msg.channel.nsfw) {
-      return msg.reply(MSGNonNSFWChannel)
+      return msg.reply(Strings.Errors.NonNSFWChannel)
     } else {
       const img = await getNekoImg(functionName, nsfwFlag)
-      if (img.nsfw && !msg.channel.nsfw) return msg.reply(MSGNonNSFWChannel)
+      if (img.nsfw && !msg.channel.nsfw) return msg.reply(Strings.Errors.NonNSFWChannel)
       else return msg.channel.send(img.url)
     }
   }
