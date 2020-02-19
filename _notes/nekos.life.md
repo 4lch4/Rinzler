@@ -2,10 +2,10 @@
 
 This is a list of all the possible command options you can use for the neko command. I had to use a separate file for now because of how many options there are. Eventually, I'll come up with a better way of displaying this data but for now, I'm sorry.
 
-  - [Neko Command Options](#neko-command-options)
-    - [How To](#how-to)
-    - [SFW Commands](#sfw-commands)
-    - [NSFW Commands](#nsfw-commands)
+- [Neko Command Options](#neko-command-options)
+  - [How To](#how-to)
+  - [SFW Commands](#sfw-commands)
+  - [NSFW Commands](#nsfw-commands)
 
 ## How To
 
