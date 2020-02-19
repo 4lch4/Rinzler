@@ -1,6 +1,6 @@
 const moment = require('moment-timezone')
 const DISCORD_EPOCH = 1420070400000
-const config = require('./config')
+const config = require('../config')
 
 const DEFAULT_DATE_FORMAT = 'MM.DD.Y @ HH:mm:ss'
 const PRETTY_DATE_FORMAT = 'MM/DD/Y HH:mm:ss'

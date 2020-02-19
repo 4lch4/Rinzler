@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const giphy = require('giphy-js-sdk-core')
-const colors = require('./colors')
+const colors = require('../colors')
 const Chance = require('chance')
 const chance = new Chance()
 
