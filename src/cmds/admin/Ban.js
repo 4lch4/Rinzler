@@ -32,6 +32,7 @@ class Ban extends BaseCmd {
         // Ban the GuildMember with the provided reason/length.
         await member.ban(userArgs)
 
+        // TODO: Find out why the member.username reference is turning up undefined.
         // Let the Channel/Guild know who was banned by whom and for what reason.
         await msg.channel.send(`\`${member.username}\` has been banned by \`${msg.author.username}\` because \`${userArgs.reason}\`.`)
       }
