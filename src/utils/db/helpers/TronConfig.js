@@ -36,6 +36,15 @@ class TronConfig extends DBBase {
     } else return msg.reply(Errors.InitializeConfigExists) // If it does exist, let the user know.
   }
 
+  async getServerConfig (serverId) {
+    return new Promise((resolve, reject) => {
+      TConfig(this.connection).findById(serverId, (err, res) => {
+        if (err) reject(err)
+        else resolve(res)
+      })
+    })
+  }
+
   async createServerConfig(serverConfig) {
     const valid = validateConfig(serverConfig)
     if (valid instanceof Error) return valid
