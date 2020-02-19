@@ -25,7 +25,7 @@ class Kick extends BaseCmd {
       const kickReason = (args.length > mentions.size) ? args.slice(mentions.size).join(' ') : 'N/A'
 
       // Iterate through each mentioned User.
-      for (const mention of mentions.size) {
+      for (const mention of mentions) {
         // Get the GuildMember version of each User.
         const member = msg.guild.member(mention[1])
 
@@ -33,7 +33,7 @@ class Kick extends BaseCmd {
         await member.kick(kickReason)
 
         // Let the Channel/Guild know who was kicked by whom and for what reason.
-        await msg.channel.send(`\`${member.username}\` has been kicked by \`${msg.author.username}\` because \`${kickReason}\`.`)
+        await msg.channel.send(`\`${mention[1].username}\` has been kicked by \`${msg.author.username}\` because \`${kickReason}\`.`)
       }
     }
   }
