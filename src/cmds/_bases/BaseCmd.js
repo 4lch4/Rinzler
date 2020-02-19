@@ -64,7 +64,7 @@ module.exports = class BaseCmd extends Command {
     * getResponse(msg, val => { return val >= 0 && val < 10 })
     *  .then(res => console.log(`Number 0 - 9 = ${res}`))
     *
-    * @example // See if the user requies help
+    * @example // See if the user requires help
     * getResponse(msg, val => { return val.toLocaleLowerCase() = 'help' })
     *   .then(res => console.log('User requires help.'))
     */
@@ -83,6 +83,8 @@ module.exports = class BaseCmd extends Command {
       coll.on('collect', (m, c) => {
         if (verify(m.content)) {
           resolve(m.content)
+          coll.stop()
+        } else if (m.content.toLowerCase() === 'cancel') {
           coll.stop()
         } else if (invalidInput !== undefined) m.channel.send(invalidInput)
       })
@@ -103,12 +105,12 @@ module.exports = class BaseCmd extends Command {
    *
    * @see https://discord.js.org/#/docs/main/master/class/TextChannel?scrollTo=send
    *
-   * @param {TextChannel|DMChannel} channel
-   * @param {string} content
-   * @param {User} author
-   * @param {MessageEmbed|MessageAttachment} [options]
+   * @param {TextChannel|DMChannel} channel The channel to send the message in.
+   * @param {string} content The content String of the message to send.
+   * @param {User} author The author of the message.
+   * @param {MessageEmbed|MessageAttachment} [options] The Embed/Attachment Object to send in the message.
    *
-   * @returns {Promise<Message>|Promise<string>}
+   * @returns {Promise<Message>|Promise<string>} The message that was sent (if successful) or an error message.
    */
   static async sendMessage (channel, content, author, options = undefined) {
     try {
@@ -122,7 +124,8 @@ module.exports = class BaseCmd extends Command {
         }
       } else return channel.send(content, options)
     } catch (err) {
-      console.error(`An error has occured while attempting to send a message: ${err.message}`)
+      console.error(`An error has occurred while attempting to send a message: ${err.message}`)
+      return err
     }
   }
 }
