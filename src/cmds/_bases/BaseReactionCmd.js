@@ -6,8 +6,8 @@ class BaseImageCommand extends BaseCmd {
     this.log(`Executing BaseImageCommand#getCommandImage(${commandName}, ${imageIndex || 'undefined'})...`)
 
     if (imageIndex && !isNaN(imageIndex) && imageIndex >= 0) {
-      return needle('get', `https://ansel.4lch4.com/reaction?name=${commandName}&index=${imageIndex}`)
-    } else return needle('get', `https://ansel.4lch4.com/reaction?name=${commandName}`)
+      return needle('get', `https://ansel.4lch4.com/reaction?name=${commandName}&index=${imageIndex}`, undefined, { response_timeout: 1000 })
+    } else return needle('get', `https://ansel.4lch4.com/reaction?name=${commandName}`, undefined, { response_timeout: 1000 })
   }
 
   async run (msg, args) {
