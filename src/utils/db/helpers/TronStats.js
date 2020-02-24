@@ -28,9 +28,11 @@ class TronStats extends DBBase {
    */
   async incrementCmdUsage (cmd, msg) {
     try {
-      const globalUpdate = await this.incrementGlobalUsage(cmd)
-      const serverUpdate = await this.incrementServerUsage(cmd, msg)
-      const userUpdate = await this.incrementUserUsage(cmd, msg)
+      return Promise.all([
+        this.incrementGlobalUsage(cmd),
+        this.incrementServerUsage(cmd, msg),
+        this.incrementUserUsage(cmd, msg)
+      ])
     } catch (err) {
       this.error(err)
       return err

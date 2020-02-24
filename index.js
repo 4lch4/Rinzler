@@ -36,6 +36,7 @@ client.registry
 sqlite.open(path.join(__dirname, 'data', 'settings.sqlite3'))
   .then(db => client.setProvider(new SQLiteProvider(db)))
 
+// #region Event Listeners
 client.on('ready', () => {
   const readyTime = dTools.formattedUTCTime
   const readyMsg = `Rinzler has come online > **${readyTime} UTC**`
@@ -74,15 +75,15 @@ client.on('reconnecting', listener => {
   logger.warn(listener)
 })
 
-client.on('commandRun', (cmd, promise, msg) => TStats.incrementCmdUsage(cmd, msg))
-
 client.on('commandError', (cmd, err) => {
   logger.error(`Error when executing ${cmd.name} command...`)
   logger.error(err)
 })
 
+client.on('commandRun', (cmd, promise, msg) => TStats.incrementCmdUsage(cmd, msg))
 client.on('error', err => logger.error(err))
 client.on('warn', info => logger.warn(info))
+// #endregion Event Listeners
 // #endregion Client Initialization
 
 // client.on('message', msg => {
