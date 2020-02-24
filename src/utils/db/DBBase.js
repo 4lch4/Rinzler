@@ -1,4 +1,5 @@
 const { mongoUrl: MONGO_URL } = require('../config')
+const logger = require('../../utils/logger')
 const mongoose = require('mongoose')
 const uuid = require('uuid/v4')
 
@@ -22,6 +23,18 @@ class MongooseDB {
    */
   generateId (options = undefined, buffer = undefined, offset = undefined) {
     return uuid(options, buffer, offset)
+  }
+
+  log (info) {
+    return logger.info(info)
+  }
+
+  warn (warning) {
+    return logger.warn(warning)
+  }
+
+  error (err) {
+    return logger.error(err)
   }
 }
 
