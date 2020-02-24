@@ -8,6 +8,7 @@ const logger = require('./src/utils/logger')
 const sqlite = require('sqlite')
 const path = require('path')
 
+// #region Client Initialization
 const client = new CommandoClient({
   commandPrefix: config.cmdPrefix,
   owner: config.owner,
@@ -63,13 +64,26 @@ client.on('ready', () => {
   logger.info(readyMsg)
 })
 
-client.on('commandRun', cmd => {
-  TStats.incrementCmdUsage(cmd.name).catch(err => logger.error(err))
+client.on('disconnect', listener => {
+  logger.warn('Rinzler was disconnected...')
+  logger.warn(listener)
 })
 
-client.on('commandError', (cmd, err) => logger.error(err))
+client.on('reconnecting', listener => {
+  logger.warn('Rinzler is reconnecting...')
+  logger.warn(listener)
+})
+
+client.on('commandRun', (cmd, promise, msg) => TStats.incrementCmdUsage(cmd, msg))
+
+client.on('commandError', (cmd, err) => {
+  logger.error(`Error when executing ${cmd.name} command...`)
+  logger.error(err)
+})
+
 client.on('error', err => logger.error(err))
-client.on('warn', info => logger.info(info))
+client.on('warn', info => logger.warn(info))
+// #endregion Client Initialization
 
 // client.on('message', msg => {
 // switch (msg.author.id) {
@@ -88,4 +102,5 @@ client.on('warn', info => logger.info(info))
 // }
 // })
 
+// Login to Discord and get shit started.
 client.login(config.discordSecret).catch(err => { logger.error(err) })
