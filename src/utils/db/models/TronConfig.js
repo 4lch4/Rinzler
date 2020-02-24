@@ -1,4 +1,3 @@
-const timestamps = require('mongoose-timestamp')
 const { Schema } = require('mongoose')
 
 const TronConfigSchema = Schema({
@@ -14,8 +13,6 @@ const TronConfigSchema = Schema({
   // Whether or not to reply with the alot creature.
   alotFlag: Boolean
 })
-
-TronConfigSchema.plugin(timestamps)
 
 module.exports = connection => {
   return connection.useDb('tconfig').model('TronConfig', TronConfigSchema, 'servers')

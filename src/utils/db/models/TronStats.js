@@ -1,4 +1,3 @@
-const timestamps = require('mongoose-timestamp')
 const { Schema } = require('mongoose')
 
 const TronStatsSchema = Schema({
@@ -76,11 +75,6 @@ const UserStatsSchema = Schema({
     lastUsed: String
   }]
 })
-
-TronStatsSchema.plugin(timestamps)
-UserStatsSchema.plugin(timestamps)
-ServerStatsSchema.plugin(timestamps)
-CommandStatsSchema.plugin(timestamps)
 
 /**
  * Returns the Mongoose Models necessary for interacting with the stats portions

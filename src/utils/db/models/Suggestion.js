@@ -1,4 +1,3 @@
-const timestamps = require('mongoose-timestamp')
 const mongoose = require('mongoose')
 
 const SuggestionSchema = mongoose.Schema({
@@ -15,8 +14,6 @@ const SuggestionSchema = mongoose.Schema({
   // The content of the suggestion itself.
   content: String
 })
-
-SuggestionSchema.plugin(timestamps)
 
 module.exports = connection => {
   return connection.useDb('data').model('Suggestion', SuggestionSchema, 'suggestions')
