@@ -1,7 +1,7 @@
 const { mongoUrl: MONGO_URL } = require('../config')
 const logger = require('../../utils/logger')
 const mongoose = require('mongoose')
-const uuid = require('uuid/v4')
+const { v4: uuid } = require('uuid')
 
 class MongooseDB {
   constructor () {
