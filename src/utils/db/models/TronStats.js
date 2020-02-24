@@ -1,5 +1,12 @@
 const { Schema } = require('mongoose')
 
+/**
+ * @typedef {Object} TronStatsSchema
+ *
+ * @property {String} _id Since there should only ever be one of these objects, the id is going to be a static value.
+ * @property {String} startup The latest time of startup.
+ * @property {Number} restarts How many times Tron has been restarted over the life of development.
+ */
 const TronStatsSchema = Schema({
   // Since there should only ever be one of these objects, the id is going to be
   // a static value.
@@ -13,6 +20,14 @@ const TronStatsSchema = Schema({
   restarts: Number
 })
 
+/**
+ * @typedef {Object} CommandStatsSchema
+ *
+ * @property {String} _id The unique identifier of the command stat being tracked, generated via the uuid module.
+ * @property {String} name The name of the command, duh.
+ * @property {Number} uses How many times the command has been used.
+ * @property {String} lastUsed A timestamp indicating when the command was last used.
+ */
 const CommandStatsSchema = Schema({
   // The ID of the command stat being tracked, generated via uuid module.
   _id: String,
@@ -27,32 +42,35 @@ const CommandStatsSchema = Schema({
   lastUsed: String
 })
 
+/**
+ * @typedef {Object} ServerStatsSchema
+ *
+ * @property {String} _id The unique identifier of the Server returned from Discord.
+ * @property {String} name The display name of the Server.
+ * @property {Number} memberCount The amount of members last seen on the Server.
+ * @property {CommandStatsSchema[]} cmdUsage An array of CommandStatsSchemas that represent the command usage stats for this server.
+ */
 const ServerStatsSchema = Schema({
-  // The id of the server as far as Discord is concerned.
+  // The id of the Server as far as Discord is concerned.
   _id: String,
 
-  // The display name of the server.
+  // The display name of the Server.
   name: String,
 
-  // The amount of members last seen on the server.
+  // The amount of members last seen on the Server.
   memberCount: Number,
 
   // An array of commands and their usage stats.
-  cmdUsage: [{
-    // The ID of the command stat being tracked, generated via uuid module.
-    _id: String,
-
-    // The name of the command, duh.
-    name: String,
-
-    // How many times the command has been used.
-    uses: Number,
-
-    // A timestamp indicating when the command was last used.
-    lastUsed: String
-  }]
+  cmdUsage: [CommandStatsSchema]
 })
 
+/**
+ * @typedef {Object} UserStatsSchema
+ *
+ * @property {String} _id The unique identifier of the User returned from Discord.
+ * @property {String} name The display name of the User.
+ * @property {CommandStatsSchema[]} cmdUsage An array of CommandStatsSchemas that represent the command usage stats for this User.
+ */
 const UserStatsSchema = Schema({
   // The id of the user as far as Discord is concerned.
   _id: String,
@@ -61,19 +79,7 @@ const UserStatsSchema = Schema({
   name: String,
 
   // An array of commands and their usage stats.
-  cmdUsage: [{
-    // The ID of the command stat being tracked, generated via uuid module.
-    _id: String,
-
-    // The name of the command, duh.
-    name: String,
-
-    // How many times the command has been used.
-    uses: Number,
-
-    // A timestamp indicating when the command was last used.
-    lastUsed: String
-  }]
+  cmdUsage: [CommandStatsSchema]
 })
 
 /**
