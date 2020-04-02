@@ -29,7 +29,7 @@
   },
   "license": "2-Clause-BSD",
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "chance": "^1.1.4",
     "coinbase": "^2.0.8",
     "discord.js": "^11.5.1",
