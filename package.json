@@ -50,7 +50,7 @@
     "simple-node-logger": "^18.12.24",
     "sqlite": "^3.0.3",
     "tumblr.js": "^2.0.2",
-    "uuid": "^3.4.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "faker": "4.1.0",
