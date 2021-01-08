@@ -42,7 +42,7 @@
     "mongodb": "^3.5.2",
     "mongoose": "^5.8.11",
     "mongoose-timestamp": "^0.6.0",
-    "needle": "2.4.0",
+    "needle": "2.6.0",
     "nekos.life": "^2.0.5",
     "redwrap": "^0.0.4",
     "restify": "^8.5.1",
