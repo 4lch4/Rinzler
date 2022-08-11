@@ -32,7 +32,7 @@
     "chalk": "^3.0.0",
     "chance": "^1.1.4",
     "coinbase": "^2.0.8",
-    "discord.js": "^11.5.1",
+    "discord.js": "^14.2.0",
     "discord.js-commando": "^0.10.0",
     "fs-extra": "^8.1.0",
     "giphy-js-sdk-core": "^1.0.6",
